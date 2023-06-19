@@ -5,8 +5,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import org.hibernate.validator.constraints.br.CPF;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
@@ -19,6 +18,8 @@ import java.util.UUID;
 @Entity
 public class Owner {
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id", updatable = false, unique = true, nullable = false)
     private UUID idOwner;
     @NotBlank
     private String fullName;
@@ -42,7 +43,6 @@ public class Owner {
 
     public Owner(String fullName, String cpf, String email, String cellphoneNumber,
                  LocalDate birthData, String roomNumber, Boolean acceptTerms) {
-        this.idOwner = UUID.randomUUID();
         this.fullName = fullName;
         this.cpf = cpf;
         this.email = email;
@@ -53,4 +53,5 @@ public class Owner {
         this.timeRegistration = LocalDateTime.now();
 
     }
+
 }
