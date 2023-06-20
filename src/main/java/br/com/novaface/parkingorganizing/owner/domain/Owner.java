@@ -1,5 +1,6 @@
 package br.com.novaface.parkingorganizing.owner.domain;
 
+import br.com.novaface.parkingorganizing.owner.application.api.OwnerRequest;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -41,17 +42,14 @@ public class Owner {
     private LocalDateTime timeRegistration;
     private LocalDateTime timeLastChange;
 
-    public Owner(String fullName, String cpf, String email, String cellphoneNumber,
-                 LocalDate birthData, String roomNumber, Boolean acceptTerms) {
-        this.fullName = fullName;
-        this.cpf = cpf;
-        this.email = email;
-        this.cellphoneNumber = cellphoneNumber;
-        this.birthData = birthData;
-        this.roomNumber = roomNumber;
-        this.acceptTerms = acceptTerms;
+    public Owner(OwnerRequest ownerRequest) {
+        this.fullName = ownerRequest.getFullName();
+        this.cpf = ownerRequest.getCpf();
+        this.email = ownerRequest.getEmail();
+        this.cellphoneNumber = ownerRequest.getCellphoneNumber();
+        this.birthData = ownerRequest.getBirthData();
+        this.roomNumber =ownerRequest.getRoomNumber();
+        this.acceptTerms = ownerRequest.getAcceptTerms();
         this.timeRegistration = LocalDateTime.now();
-
     }
-
 }
