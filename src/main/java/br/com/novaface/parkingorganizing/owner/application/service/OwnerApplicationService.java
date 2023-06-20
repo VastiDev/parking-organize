@@ -28,7 +28,8 @@ public class OwnerApplicationService implements OwnerService {
     @Override
     public List<OwnerListResponse> getAllOwners() {
         log.info("[start] OwnerApplicationService - getAllOwners");
+        List<Owner> owners = ownerRepository.getAllOwners();
         log.info("[finish] OwnerApplicationService - getAllOwners");
-        return null;
+        return OwnerListResponse.convert(owners);
     }
 }

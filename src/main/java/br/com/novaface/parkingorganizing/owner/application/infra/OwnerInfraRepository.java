@@ -6,6 +6,8 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 @Repository
 @Log4j2
 @RequiredArgsConstructor
@@ -18,5 +20,13 @@ public class OwnerInfraRepository implements OwnerRepository {
         ownerSpringDataJPARepository.save(owner);
         log.info("[finish] OwnerInfraRepository - save");
         return owner;
+    }
+
+    @Override
+    public List<Owner> getAllOwners() {
+        log.info("[start] OwnerInfraRepository - getAllOwners");
+        List<Owner> allOwners = ownerSpringDataJPARepository.findAll();
+        log.info("[finish] OwnerInfraRepository - getAllOwners");
+        return allOwners;
     }
 }
