@@ -7,7 +7,6 @@ import br.com.novaface.parkingorganizing.owner.domain.Owner;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Service;
-import sun.security.krb5.internal.ccache.MemoryCredentialsCache;
 
 @Service
 @Log4j2
