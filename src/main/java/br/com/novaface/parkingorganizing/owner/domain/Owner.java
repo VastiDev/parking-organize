@@ -1,9 +1,7 @@
 package br.com.novaface.parkingorganizing.owner.domain;
 
 import br.com.novaface.parkingorganizing.owner.application.api.OwnerRequest;
-import lombok.AccessLevel;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import org.hibernate.validator.constraints.br.CPF;
 
 import javax.persistence.*;
@@ -13,6 +11,7 @@ import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.UUID;
+
 
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 @Getter
@@ -36,6 +35,8 @@ public class Owner {
     private LocalDate birthData;
     @NotBlank
     private String roomNumber;
+    @NotBlank
+    private String parkingLot;
     @NotNull
     private Boolean acceptTerms;
 
@@ -49,7 +50,9 @@ public class Owner {
         this.cellphoneNumber = ownerRequest.getCellphoneNumber();
         this.birthData = ownerRequest.getBirthData();
         this.roomNumber =ownerRequest.getRoomNumber();
+        this.parkingLot = ownerRequest.getParkingLot();
         this.acceptTerms = ownerRequest.getAcceptTerms();
         this.timeRegistration = LocalDateTime.now();
+
     }
 }

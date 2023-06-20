@@ -24,7 +24,8 @@ public class OwnerController implements OwnerAPI {
     @Override
     public List<OwnerListResponse> getAllOwner() {
         log.info("[start] OwnerController - getAllOwner");
+        List<OwnerListResponse> owners = ownerService.getAllOwners();
         log.info("[finish] OwnerController - getAllOwner");
-        return null;
+        return owners;
     }
 }

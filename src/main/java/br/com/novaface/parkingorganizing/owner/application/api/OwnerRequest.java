@@ -10,5 +10,7 @@ public class OwnerRequest {
     private String cellphoneNumber;
     private LocalDate birthData;
     private String roomNumber;
+    private String parkingLot;
     private Boolean acceptTerms;
+
 }
