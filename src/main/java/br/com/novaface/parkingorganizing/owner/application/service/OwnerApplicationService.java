@@ -1,5 +1,6 @@
 package br.com.novaface.parkingorganizing.owner.application.service;
 
+import br.com.novaface.parkingorganizing.owner.application.api.OwnerDetailResponse;
 import br.com.novaface.parkingorganizing.owner.application.api.OwnerListResponse;
 import br.com.novaface.parkingorganizing.owner.application.api.OwnerRequest;
 import br.com.novaface.parkingorganizing.owner.application.api.OwnerResponse;
@@ -10,6 +11,7 @@ import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.UUID;
 
 @Service
 @Log4j2
@@ -31,5 +33,12 @@ public class OwnerApplicationService implements OwnerService {
         List<Owner> owners = ownerRepository.getAllOwners();
         log.info("[finish] OwnerApplicationService - getAllOwners");
         return OwnerListResponse.convert(owners);
+    }
+
+    @Override
+    public OwnerDetailResponse getOwnerPerId(UUID idOwner) {
+        log.info("[start] OwnerApplicationService - getOwnerPerId");
+        log.info("[finish] OwnerApplicationService - getOwnerPerId");
+        return null;
     }
 }

@@ -15,6 +15,7 @@ public class OwnerListResponse {
     private String email;
     private String cellphoneNumber;
     private String roomNumber;
+    private String parkingLot;
 
     public static List<OwnerListResponse> convert(List<Owner> owners) {
         return owners.stream()
@@ -28,5 +29,6 @@ public class OwnerListResponse {
         this.email = owner.getEmail();
         this.cellphoneNumber = owner.getCellphoneNumber();
         this.roomNumber = owner.getRoomNumber();
+        this.parkingLot = owner.getParkingLot();
     }
 }

@@ -5,6 +5,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.util.List;
+import java.util.UUID;
 
 @RestController
 @RequestMapping("/v1/owner")
@@ -16,5 +17,9 @@ public interface OwnerAPI {
     @GetMapping
     @ResponseStatus(code = HttpStatus.OK)
     List<OwnerListResponse> getAllOwner();
+
+    @GetMapping(value = "/{idOwner}")
+    @ResponseStatus(code = HttpStatus.OK)
+    OwnerDetailResponse getOwnerPerId(@PathVariable UUID idOwner);
 
 }

@@ -6,6 +6,7 @@ import lombok.extern.log4j.Log4j2;;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
+import java.util.UUID;
 
 
 @RestController
@@ -27,5 +28,14 @@ public class OwnerController implements OwnerAPI {
         List<OwnerListResponse> owners = ownerService.getAllOwners();
         log.info("[finish] OwnerController - getAllOwner");
         return owners;
+    }
+
+    @Override
+    public OwnerDetailResponse getOwnerPerId(UUID idOwner) {
+        log.info("[start] OwnerController - getOwnerPerId");
+        log.info("[idOwner] {}", idOwner);
+        OwnerDetailResponse ownerDetailed = ownerService.getOwnerPerId(idOwner);
+        log.info("[finish] OwnerController - getOwnerPerId");
+        return ownerDetailed;
     }
 }
