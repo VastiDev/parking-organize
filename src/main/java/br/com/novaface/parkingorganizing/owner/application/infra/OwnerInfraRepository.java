@@ -7,6 +7,8 @@ import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Optional;
+import java.util.UUID;
 
 @Repository
 @Log4j2
@@ -28,5 +30,14 @@ public class OwnerInfraRepository implements OwnerRepository {
         List<Owner> allOwners = ownerSpringDataJPARepository.findAll();
         log.info("[finish] OwnerInfraRepository - getAllOwners");
         return allOwners;
+    }
+
+    @Override
+    public Owner getOwnerPerId(UUID idOwner) {
+        log.info("[start] OwnerInfraRepository - getOwnerPerId");
+        Owner owner = ownerSpringDataJPARepository.findById(idOwner)
+                        .orElseThrow(() -> new RuntimeException("Cliente não enconttrado!"));
+        log.info("[finish] OwnerInfraRepository - getOwnerPerId");
+        return owner;
     }
 }

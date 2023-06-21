@@ -19,7 +19,7 @@ import java.util.UUID;
 public class Owner {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id", updatable = false, unique = true, nullable = false)
+    @Column(columnDefinition = "uuid", name = "idOwner", updatable = false, unique = true, nullable = false)
     private UUID idOwner;
     @NotBlank
     private String fullName;

@@ -38,7 +38,8 @@ public class OwnerApplicationService implements OwnerService {
     @Override
     public OwnerDetailResponse getOwnerPerId(UUID idOwner) {
         log.info("[start] OwnerApplicationService - getOwnerPerId");
+        Owner owner = ownerRepository.getOwnerPerId(idOwner);
         log.info("[finish] OwnerApplicationService - getOwnerPerId");
-        return null;
+        return new OwnerDetailResponse(owner);
     }
 }
