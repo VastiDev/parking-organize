@@ -1,5 +1,6 @@
 package br.com.novaface.parkingorganizing.owner.application.service;
 
+import br.com.novaface.parkingorganizing.OwnerChangeRequest;
 import br.com.novaface.parkingorganizing.owner.application.api.OwnerDetailResponse;
 import br.com.novaface.parkingorganizing.owner.application.api.OwnerListResponse;
 import br.com.novaface.parkingorganizing.owner.application.api.OwnerRequest;
@@ -49,6 +50,16 @@ public class OwnerApplicationService implements OwnerService {
         Owner owner = ownerRepository.getOwnerPerId(idOwner);
         ownerRepository.deleteOwner(owner);
         log.info("[finish] OwnerApplicationService - deleteOwnerPerId");
+
+    }
+
+    @Override
+    public void patchChangeOwner(UUID idOwner, OwnerChangeRequest ownerChangeRequest) {
+        log.info("[start] OwnerApplicationService - patchChangeOwner");
+        Owner owner = ownerRepository.getOwnerPerId(idOwner);
+        owner.patch(ownerChangeRequest);
+        ownerRepository.save(owner);
+        log.info("[finish] OwnerApplicationService - patchChangeOwner");
 
     }
 }

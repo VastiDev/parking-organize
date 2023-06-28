@@ -1,5 +1,6 @@
 package br.com.novaface.parkingorganizing.owner.application.service;
 
+import br.com.novaface.parkingorganizing.OwnerChangeRequest;
 import br.com.novaface.parkingorganizing.owner.application.api.OwnerDetailResponse;
 import br.com.novaface.parkingorganizing.owner.application.api.OwnerListResponse;
 import br.com.novaface.parkingorganizing.owner.application.api.OwnerRequest;
@@ -13,4 +14,5 @@ public interface OwnerService {
     List<OwnerListResponse> getAllOwners();
     OwnerDetailResponse getOwnerPerId(UUID idOwner);
     void deleteOwnerPerId(UUID idOwner);
+    void patchChangeOwner(UUID idOwner, OwnerChangeRequest ownerChangeRequest);
 }

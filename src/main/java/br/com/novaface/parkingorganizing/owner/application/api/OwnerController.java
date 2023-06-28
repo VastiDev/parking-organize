@@ -52,6 +52,7 @@ public class OwnerController implements OwnerAPI {
     public void patchChangeOwner(UUID idOwner, OwnerChangeRequest ownerChangeRequest) {
         log.info("[start] OwnerController - patchChangeOwner");
         log.info("[idOwner] {}", idOwner);
+        ownerService.patchChangeOwner(idOwner, ownerChangeRequest);
         log.info("[finish] OwnerController - patchChangeOwner");
 
     }

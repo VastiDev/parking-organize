@@ -1,5 +1,6 @@
 package br.com.novaface.parkingorganizing.owner.domain;
 
+import br.com.novaface.parkingorganizing.OwnerChangeRequest;
 import br.com.novaface.parkingorganizing.owner.application.api.OwnerRequest;
 import lombok.*;
 import org.hibernate.validator.constraints.br.CPF;
@@ -57,4 +58,13 @@ public class Owner {
         this.timeRegistration = LocalDateTime.now();
 
     }
+
+    public void patch(OwnerChangeRequest ownerChangeRequest) {
+        this.fullName = ownerChangeRequest.getFullName();
+        this.cellphoneNumber = ownerChangeRequest.getCellphoneNumber();
+        this.roomNumber =ownerChangeRequest.getRoomNumber();
+        this.parkingLot = ownerChangeRequest.getParkingLot();
+        this.timeLastChange = LocalDateTime.now();
+    }
+
 }
