@@ -42,4 +42,12 @@ public class OwnerApplicationService implements OwnerService {
         log.info("[finish] OwnerApplicationService - getOwnerPerId");
         return new OwnerDetailResponse(owner);
     }
+
+    @Override
+    public void deleteOwnerPerId(UUID idOwner) {
+        log.info("[start] OwnerApplicationService - deleteOwnerPerId");
+        Owner owner = ownerRepository.getOwnerPerId(idOwner);
+        log.info("[finish] OwnerApplicationService - deleteOwnerPerId");
+
+    }
 }

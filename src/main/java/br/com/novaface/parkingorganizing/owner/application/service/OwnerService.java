@@ -12,4 +12,5 @@ public interface OwnerService {
     OwnerResponse creatOwner(OwnerRequest ownerRequest);
     List<OwnerListResponse> getAllOwners();
     OwnerDetailResponse getOwnerPerId(UUID idOwner);
+    void deleteOwnerPerId(UUID idOwner);
 }

@@ -42,8 +42,8 @@ public class OwnerController implements OwnerAPI {
     @Override
     public void deleteOwnerPerId(UUID idOwner) {
         log.info("[start] OwnerController - deleteOwnerPerId");
-        ownerService.getOwnerPerId(idOwner);
-
+        log.info("[idOwner] {}", idOwner);
+        ownerService.deleteOwnerPerId(idOwner);
         log.info("[finish] OwnerController - deleteOwnerPerId");
     }
 }
