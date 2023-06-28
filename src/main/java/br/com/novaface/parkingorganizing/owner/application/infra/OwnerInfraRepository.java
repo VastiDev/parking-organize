@@ -1,9 +1,11 @@
 package br.com.novaface.parkingorganizing.owner.application.infra;
 
+import br.com.novaface.parkingorganizing.handler.APIException;
 import br.com.novaface.parkingorganizing.owner.application.repository.OwnerRepository;
 import br.com.novaface.parkingorganizing.owner.domain.Owner;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -36,7 +38,7 @@ public class OwnerInfraRepository implements OwnerRepository {
     public Owner getOwnerPerId(UUID idOwner) {
         log.info("[start] OwnerInfraRepository - getOwnerPerId");
         Owner owner = ownerSpringDataJPARepository.findById(idOwner)
-                        .orElseThrow(() -> new RuntimeException("Cliente não enconttrado!"));
+                        .orElseThrow(() -> APIException.build(HttpStatus.NOT_FOUND,"Cliente não enconttrado!"));
         log.info("[finish] OwnerInfraRepository - getOwnerPerId");
         return owner;
     }
