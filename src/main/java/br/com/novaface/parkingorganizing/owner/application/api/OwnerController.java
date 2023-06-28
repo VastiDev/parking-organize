@@ -38,4 +38,10 @@ public class OwnerController implements OwnerAPI {
         log.info("[finish] OwnerController - getOwnerPerId");
         return ownerDetailed;
     }
+
+    @Override
+    public void deleteOwnerPerId(UUID idOwner) {
+        log.info("[start] OwnerController - deleteOwnerPerId");
+        log.info("[finish] OwnerController - deleteOwnerPerId");
+    }
 }

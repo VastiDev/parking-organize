@@ -22,4 +22,8 @@ public interface OwnerAPI {
     @ResponseStatus(code = HttpStatus.OK)
     OwnerDetailResponse getOwnerPerId(@PathVariable UUID idOwner);
 
+    @DeleteMapping(value = "/{idOwner}")
+    @ResponseStatus(code = HttpStatus.NO_CONTENT)
+    void deleteOwnerPerId(@PathVariable UUID idOwner);
+
 }
