@@ -42,4 +42,12 @@ public class OwnerInfraRepository implements OwnerRepository {
         log.info("[finish] OwnerInfraRepository - getOwnerPerId");
         return owner;
     }
+
+    @Override
+    public void deleteOwner(Owner owner) {
+        log.info("[start] OwnerInfraRepository - deleteOwner");
+        log.info("[finish] OwnerInfraRepository - deleteOwner");
+
+
+    }
 }

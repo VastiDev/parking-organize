@@ -47,6 +47,7 @@ public class OwnerApplicationService implements OwnerService {
     public void deleteOwnerPerId(UUID idOwner) {
         log.info("[start] OwnerApplicationService - deleteOwnerPerId");
         Owner owner = ownerRepository.getOwnerPerId(idOwner);
+        ownerRepository.deleteOwner(owner);
         log.info("[finish] OwnerApplicationService - deleteOwnerPerId");
 
     }

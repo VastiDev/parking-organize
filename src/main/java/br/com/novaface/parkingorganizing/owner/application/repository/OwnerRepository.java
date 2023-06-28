@@ -9,4 +9,5 @@ public interface OwnerRepository {
     Owner save(Owner owner);
     List<Owner> getAllOwners();
     Owner getOwnerPerId(UUID idOwner);
+    void deleteOwner(Owner owner);
 }
