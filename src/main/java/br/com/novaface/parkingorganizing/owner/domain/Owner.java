@@ -24,10 +24,12 @@ public class Owner {
     @NotBlank
     private String fullName;
     @NotBlank
+    @Column(unique = true)
     @CPF
     private String cpf;
     @NotBlank
     @Email
+    @Column(unique = true)
     private String email;
     @NotBlank
     private String cellphoneNumber;
