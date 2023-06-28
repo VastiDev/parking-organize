@@ -1,5 +1,6 @@
 package br.com.novaface.parkingorganizing.owner.application.api;
 
+import br.com.novaface.parkingorganizing.OwnerChangeRequest;
 import br.com.novaface.parkingorganizing.owner.application.service.OwnerService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;;
@@ -46,4 +47,13 @@ public class OwnerController implements OwnerAPI {
         ownerService.deleteOwnerPerId(idOwner);
         log.info("[finish] OwnerController - deleteOwnerPerId");
     }
+
+    @Override
+    public void patchChangeOwner(UUID idOwner, OwnerChangeRequest ownerChangeRequest) {
+        log.info("[start] OwnerController - patchChangeOwner");
+        log.info("[idOwner] {}", idOwner);
+        log.info("[finish] OwnerController - patchChangeOwner");
+
+    }
+
 }

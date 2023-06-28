@@ -1,5 +1,6 @@
 package br.com.novaface.parkingorganizing.owner.application.api;
 
+import br.com.novaface.parkingorganizing.OwnerChangeRequest;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
@@ -25,5 +26,10 @@ public interface OwnerAPI {
     @DeleteMapping(value = "/{idOwner}")
     @ResponseStatus(code = HttpStatus.NO_CONTENT)
     void deleteOwnerPerId(@PathVariable UUID idOwner);
+
+    @PatchMapping(value = "/{idOwner}")
+    @ResponseStatus(code = HttpStatus.NO_CONTENT)
+    void patchChangeOwner(@PathVariable UUID idOwner,
+                          @Valid @RequestBody OwnerChangeRequest ownerChangeRequest );
 
 }
