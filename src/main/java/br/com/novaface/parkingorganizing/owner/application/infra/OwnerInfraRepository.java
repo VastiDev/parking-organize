@@ -46,6 +46,7 @@ public class OwnerInfraRepository implements OwnerRepository {
     @Override
     public void deleteOwner(Owner owner) {
         log.info("[start] OwnerInfraRepository - deleteOwner");
+        ownerSpringDataJPARepository.delete(owner);
         log.info("[finish] OwnerInfraRepository - deleteOwner");
 
 
