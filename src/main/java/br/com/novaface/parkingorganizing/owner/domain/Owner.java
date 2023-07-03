@@ -38,8 +38,6 @@ public class Owner {
     private LocalDate birthData;
     @NotBlank
     private String roomNumber;
-    @NotBlank
-    private String parkingLot;
     @NotNull
     private Boolean acceptTerms;
 
@@ -53,7 +51,6 @@ public class Owner {
         this.cellphoneNumber = ownerRequest.getCellphoneNumber();
         this.birthData = ownerRequest.getBirthData();
         this.roomNumber =ownerRequest.getRoomNumber();
-        this.parkingLot = ownerRequest.getParkingLot();
         this.acceptTerms = ownerRequest.getAcceptTerms();
         this.timeRegistration = LocalDateTime.now();
 
@@ -63,7 +60,6 @@ public class Owner {
         this.fullName = ownerChangeRequest.getFullName();
         this.cellphoneNumber = ownerChangeRequest.getCellphoneNumber();
         this.roomNumber =ownerChangeRequest.getRoomNumber();
-        this.parkingLot = ownerChangeRequest.getParkingLot();
         this.timeLastChange = LocalDateTime.now();
     }
 

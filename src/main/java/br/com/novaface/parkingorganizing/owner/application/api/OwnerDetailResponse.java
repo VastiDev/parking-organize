@@ -14,7 +14,6 @@ public class OwnerDetailResponse {
     private String cellphoneNumber;
     private LocalDate birthData;
     private String roomNumber;
-    private String parkingLot;
     private Boolean acceptTerms;
     private LocalDateTime timeRegistration;
 
@@ -25,7 +24,6 @@ public class OwnerDetailResponse {
         this.cellphoneNumber = owner.getCellphoneNumber();
         this.birthData = owner.getBirthData();
         this.roomNumber = owner.getRoomNumber();
-        this.parkingLot = owner.getParkingLot();
         this.acceptTerms = owner.getAcceptTerms();
         this.timeRegistration = owner.getTimeRegistration();
     }
