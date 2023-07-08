@@ -8,6 +8,6 @@ import javax.validation.constraints.Max;
 @Data
 public class LotRequest {
 
-    private String numberLot;
+    private Integer numberLot;
 
 }
