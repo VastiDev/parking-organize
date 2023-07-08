@@ -21,7 +21,6 @@ public class Lot {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private UUID idLot;
     @NotBlank
-    @Setter
     @Min(1)
     @Max(30)
     @Column(unique = true)
