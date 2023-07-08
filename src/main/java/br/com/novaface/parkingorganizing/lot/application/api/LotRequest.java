@@ -1,9 +1,13 @@
 package br.com.novaface.parkingorganizing.lot.application.api;
 
-import lombok.Value;
+import lombok.Data;
 
-import javax.validation.constraints.NotBlank;
-@Value
+import javax.persistence.Column;
+import javax.validation.constraints.Max;
+
+@Data
 public class LotRequest {
+
+    private String numberLot;
 
 }

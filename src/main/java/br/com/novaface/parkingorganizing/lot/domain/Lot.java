@@ -9,16 +9,16 @@ import javax.validation.constraints.NotBlank;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
-@NoArgsConstructor(access = AccessLevel.PRIVATE)
+@NoArgsConstructor(access = AccessLevel.PUBLIC)
 @Getter
+@Entity
 public class Lot {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(columnDefinition = "uuid", name = "idLot", updatable = false, unique = true, nullable = false)
     private UUID idLot;
     @NotBlank
-    private String numberLot;
+    private Integer numberLot;
 
 
     private LocalDateTime timeRegistration;
