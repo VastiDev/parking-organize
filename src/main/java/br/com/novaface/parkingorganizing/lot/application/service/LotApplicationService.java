@@ -11,8 +11,8 @@ import java.util.UUID;
 public class LotApplicationService implements LotService {
     @Override
     public LotResponse createLot(UUID idOwner, LotRequest lotRequest) {
-        log.info("[start} LotApplicationService - createLot" );
-        log.info("[finish} LotApplicationService - createLot" );
+        log.info("[start] LotApplicationService - createLot");
+        log.info("[finish] LotApplicationService - createLot");
         return null;
     }
 }

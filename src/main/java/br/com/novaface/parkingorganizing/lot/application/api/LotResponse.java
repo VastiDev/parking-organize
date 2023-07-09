@@ -1,10 +1,9 @@
 package br.com.novaface.parkingorganizing.lot.application.api;
 
-import lombok.Value;
-
+import lombok.Data;
 import java.util.UUID;
 
-@Value
+@Data
 public class LotResponse {
     private UUID idLot;
 
