@@ -6,6 +6,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.validation.Valid;
 import java.util.UUID;
 @RestController
 @Log4j2
@@ -13,7 +14,7 @@ import java.util.UUID;
 public class LotController implements LotAPI {
     private final LotService lotService;
     @Override
-    public LotResponse postLot(UUID idOwner, LotRequest lotRequest) {
+    public LotResponse postLot(UUID idOwner, @Valid LotRequest lotRequest) {
         log.info("[start] LotController - postLot");
         log.info("[idOwner] {}",idOwner);
         LotResponse lot = lotService.createLot(idOwner, lotRequest);
