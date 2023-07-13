@@ -7,6 +7,8 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 @Repository
 @Log4j2
 @RequiredArgsConstructor
@@ -19,5 +21,13 @@ public class LotInfraRepository implements LotRepository {
         lotInfraJPARepository.save(lot);
         log.info("[finish] LotInfraRepository - saveLot");
         return lot;
+    }
+
+    @Override
+    public List<Lot> getAllLots() {
+        log.info("[start] LotInfraRepository - getAllLots");
+        List<Lot> allLots = lotInfraJPARepository.findAll();
+        log.info("[finish] LotInfraRepository - getAllLots");
+        return allLots;
     }
 }

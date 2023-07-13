@@ -29,6 +29,7 @@ public class Lot {
     @Max(30)
     @Column(unique = true)
     private Integer numberLot;
+    private String fullNameOwner;
 
     private LocalDateTime timeRegistration;
     private LocalDateTime timeLastChange;
@@ -38,6 +39,8 @@ public class Lot {
         this.numberLot = lotRequest.getNumberLot();
         this.timeRegistration = LocalDateTime.now();
     }
+
+
 
 
 }

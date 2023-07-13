@@ -30,8 +30,12 @@ public class LotApplicationService implements LotService {
     @Override
     public List<LotListResponse> getAllLots() {
         log.info("[start] LotApplicationService - getAllLots");
+        List<Lot> lots = lotRepository.getAllLots();
         log.info("[finish] LotApplicationService - getAllLots");
-
-        return null;
+        return LotListResponse.convert(lots);
     }
+
+
 }
+
+
