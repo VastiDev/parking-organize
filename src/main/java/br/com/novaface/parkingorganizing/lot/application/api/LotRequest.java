@@ -9,6 +9,8 @@ import javax.validation.constraints.NotBlank;
 
 @Data
 public class LotRequest {
+    @Min(1)
+    @Max(30)
     private Integer numberLot;
 
 }

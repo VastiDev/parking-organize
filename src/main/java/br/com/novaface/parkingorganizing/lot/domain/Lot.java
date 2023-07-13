@@ -7,6 +7,8 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import javax.validation.Valid;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import java.time.LocalDateTime;
 import java.util.UUID;
@@ -23,6 +25,8 @@ public class Lot {
 
     @NotNull
     private UUID idOwnerHome;
+    @Min(1)
+    @Max(30)
     private Integer numberLot;
 
     private LocalDateTime timeRegistration;
