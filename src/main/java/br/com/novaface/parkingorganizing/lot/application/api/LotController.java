@@ -34,8 +34,9 @@ public class LotController implements LotAPI {
     @Override
     public LotDetailResponse getLotPerId(UUID idLot) {
         log.info("[start] LotController - getLotPerId ");
+        log.info("[idLot] {},idLot");
+        LotDetailResponse lotDetailed = lotService.getLotPerId(idLot);
         log.info("[finish] LotController - getLotPerId ");
-
-        return null;
+        return lotDetailed;
     }
 }

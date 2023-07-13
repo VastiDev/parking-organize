@@ -1,5 +1,6 @@
 package br.com.novaface.parkingorganizing.lot.application.service;
 
+import br.com.novaface.parkingorganizing.lot.application.api.LotDetailResponse;
 import br.com.novaface.parkingorganizing.lot.application.api.LotListResponse;
 import br.com.novaface.parkingorganizing.lot.application.api.LotRequest;
 import br.com.novaface.parkingorganizing.lot.application.api.LotResponse;
@@ -14,4 +15,6 @@ public interface LotService {
     LotResponse createLot(UUID idOwner, LotRequest lotRequest);
 
     List<LotListResponse> getAllLots();
+
+    LotDetailResponse getLotPerId(UUID idLot);
 }

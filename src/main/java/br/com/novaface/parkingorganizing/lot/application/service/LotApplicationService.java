@@ -1,5 +1,6 @@
 package br.com.novaface.parkingorganizing.lot.application.service;
 
+import br.com.novaface.parkingorganizing.lot.application.api.LotDetailResponse;
 import br.com.novaface.parkingorganizing.lot.application.api.LotListResponse;
 import br.com.novaface.parkingorganizing.lot.application.api.LotRequest;
 import br.com.novaface.parkingorganizing.lot.application.api.LotResponse;
@@ -33,6 +34,14 @@ public class LotApplicationService implements LotService {
         List<Lot> lots = lotRepository.getAllLots();
         log.info("[finish] LotApplicationService - getAllLots");
         return LotListResponse.convert(lots);
+    }
+
+    @Override
+    public LotDetailResponse getLotPerId(UUID idLot) {
+        log.info("[start] LotApplicationService - getLotPerId");
+        log.info("[finish] LotApplicationService - getLotPerId");
+
+        return null;
     }
 
 
