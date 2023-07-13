@@ -26,7 +26,8 @@ public class LotController implements LotAPI {
     @Override
     public List<LotListResponse> getAllLots() {
         log.info("[start] LotController -  getAllLots");
+        List<LotListResponse> lots = lotService.getAllLots();
         log.info("[finish] LotController -  getAllLots");
-        return null;
+        return lots;
     }
 }

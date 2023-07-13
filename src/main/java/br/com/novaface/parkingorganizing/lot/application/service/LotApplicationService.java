@@ -1,5 +1,6 @@
 package br.com.novaface.parkingorganizing.lot.application.service;
 
+import br.com.novaface.parkingorganizing.lot.application.api.LotListResponse;
 import br.com.novaface.parkingorganizing.lot.application.api.LotRequest;
 import br.com.novaface.parkingorganizing.lot.application.api.LotResponse;
 import br.com.novaface.parkingorganizing.lot.domain.Lot;
@@ -9,6 +10,7 @@ import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Service;
 
 import javax.validation.Valid;
+import java.util.List;
 import java.util.UUID;
 @Service
 @Log4j2
@@ -23,5 +25,13 @@ public class LotApplicationService implements LotService {
         Lot lot = lotRepository.saveLot(new Lot(idOwner, lotRequest));
         log.info("[finish] LotApplicationService - createLot");
         return new LotResponse(lot.getIdLot());
+    }
+
+    @Override
+    public List<LotListResponse> getAllLots() {
+        log.info("[start] LotApplicationService - getAllLots");
+        log.info("[finish] LotApplicationService - getAllLots");
+
+        return null;
     }
 }
