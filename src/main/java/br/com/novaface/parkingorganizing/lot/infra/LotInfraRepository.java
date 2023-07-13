@@ -8,6 +8,7 @@ import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.UUID;
 
 @Repository
 @Log4j2
@@ -29,5 +30,13 @@ public class LotInfraRepository implements LotRepository {
         List<Lot> allLots = lotInfraJPARepository.findAll();
         log.info("[finish] LotInfraRepository - getAllLots");
         return allLots;
+    }
+
+    @Override
+    public Lot getLotPerId(UUID idLot) {
+        log.info("[start] LotInfraRepository - getLotPerId");
+        log.info("[finish] LotInfraRepository - getLotPerId");
+
+        return null;
     }
 }

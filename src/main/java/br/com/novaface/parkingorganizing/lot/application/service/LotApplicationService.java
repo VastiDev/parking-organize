@@ -39,8 +39,8 @@ public class LotApplicationService implements LotService {
     @Override
     public LotDetailResponse getLotPerId(UUID idLot) {
         log.info("[start] LotApplicationService - getLotPerId");
+        Lot lot = lotRepository.getLotPerId(idLot);
         log.info("[finish] LotApplicationService - getLotPerId");
-
         return null;
     }
 
