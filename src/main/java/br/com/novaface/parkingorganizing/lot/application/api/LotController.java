@@ -30,4 +30,12 @@ public class LotController implements LotAPI {
         log.info("[finish] LotController -  getAllLots");
         return lots;
     }
+
+    @Override
+    public LotDetailResponse getLotPerId(UUID idLot) {
+        log.info("[start] LotController - getLotPerId ");
+        log.info("[finish] LotController - getLotPerId ");
+
+        return null;
+    }
 }

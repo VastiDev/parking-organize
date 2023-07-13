@@ -2,6 +2,7 @@ package br.com.novaface.parkingorganizing.lot.application.api;
 
 import br.com.novaface.parkingorganizing.lot.domain.Lot;
 
+import br.com.novaface.parkingorganizing.owner.application.api.OwnerDetailResponse;
 import br.com.novaface.parkingorganizing.owner.application.api.OwnerListResponse;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -21,6 +22,10 @@ public interface LotAPI {
     @GetMapping
     @ResponseStatus(code = HttpStatus.OK)
     List<LotListResponse> getAllLots();
+
+    @GetMapping(value = "/{idLot}")
+    @ResponseStatus(code = HttpStatus.OK)
+    LotDetailResponse getLotPerId(@PathVariable UUID idLot);
 
 }
 
