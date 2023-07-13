@@ -19,16 +19,13 @@ import java.util.UUID;
 public class Lot {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(columnDefinition = "uuid", name = "idLot", updatable = false, unique = true, nullable = false )
-    private UUID idLot;
-
-    @NotNull
-    private UUID idOwnerHome;
     @Min(1)
     @Max(30)
     @Column(unique = true)
     private Integer numberLot;
+
+    @NotNull
+    private UUID idOwnerHome;
 
     private LocalDateTime timeRegistration;
     private LocalDateTime timeLastChange;

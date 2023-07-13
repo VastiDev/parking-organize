@@ -16,5 +16,5 @@ public interface LotService {
 
     List<LotListResponse> getAllLots();
 
-    LotDetailResponse getLotPerId(UUID idLot);
+
 }

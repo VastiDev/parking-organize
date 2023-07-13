@@ -7,7 +7,7 @@ import java.util.UUID;
 
 @Value
 public class LotResponse {
-    public UUID idLot;
+    public Integer numberLot;
 
 }
 

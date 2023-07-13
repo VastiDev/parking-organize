@@ -23,9 +23,6 @@ public interface LotAPI {
     @ResponseStatus(code = HttpStatus.OK)
     List<LotListResponse> getAllLots();
 
-    @GetMapping(value = "/{idLot}")
-    @ResponseStatus(code = HttpStatus.OK)
-    LotDetailResponse getLotPerId(@PathVariable UUID idLot);
 
 }
 

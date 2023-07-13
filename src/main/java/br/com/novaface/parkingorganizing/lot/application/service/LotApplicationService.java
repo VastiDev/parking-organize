@@ -19,13 +19,15 @@ import java.util.UUID;
 public class LotApplicationService implements LotService {
     private final OwnerService ownerService;
     private final LotRepository lotRepository;
+    private String numberLot;
+
     @Override
     public LotResponse createLot(UUID idOwner, @Valid LotRequest lotRequest) {
         log.info("[start] LotApplicationService - createLot");
         ownerService.getOwnerPerId(idOwner);
         Lot lot = lotRepository.saveLot(new Lot(idOwner, lotRequest));
         log.info("[finish] LotApplicationService - createLot");
-        return new LotResponse(lot.getIdLot());
+        return new LotResponse(lot.getNumberLot());
     }
 
     @Override
@@ -35,15 +37,6 @@ public class LotApplicationService implements LotService {
         log.info("[finish] LotApplicationService - getAllLots");
         return LotListResponse.convert(lots);
     }
-
-    @Override
-    public LotDetailResponse getLotPerId(UUID idLot) {
-        log.info("[start] LotApplicationService - getLotPerId");
-        Lot lot = lotRepository.getLotPerId(idLot);
-        log.info("[finish] LotApplicationService - getLotPerId");
-        return null;
-    }
-
 
 }
 

@@ -1,10 +1,12 @@
 package br.com.novaface.parkingorganizing.lot.infra;
 
+import br.com.novaface.parkingorganizing.handler.APIException;
 import br.com.novaface.parkingorganizing.lot.application.service.LotRepository;
 import br.com.novaface.parkingorganizing.lot.domain.Lot;
 import br.com.novaface.parkingorganizing.owner.application.infra.OwnerInfraRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -32,11 +34,4 @@ public class LotInfraRepository implements LotRepository {
         return allLots;
     }
 
-    @Override
-    public Lot getLotPerId(UUID idLot) {
-        log.info("[start] LotInfraRepository - getLotPerId");
-        log.info("[finish] LotInfraRepository - getLotPerId");
-
-        return null;
-    }
 }
