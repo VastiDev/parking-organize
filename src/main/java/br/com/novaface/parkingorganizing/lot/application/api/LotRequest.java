@@ -11,6 +11,7 @@ import javax.validation.constraints.NotBlank;
 public class LotRequest {
     @Min(1)
     @Max(30)
+    @Column(unique = true)
     private Integer numberLot;
 
 }

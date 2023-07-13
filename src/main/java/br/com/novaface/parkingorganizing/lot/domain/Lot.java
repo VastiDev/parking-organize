@@ -27,6 +27,7 @@ public class Lot {
     private UUID idOwnerHome;
     @Min(1)
     @Max(30)
+    @Column(unique = true)
     private Integer numberLot;
 
     private LocalDateTime timeRegistration;
