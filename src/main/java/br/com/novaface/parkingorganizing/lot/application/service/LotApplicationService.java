@@ -19,6 +19,7 @@ import java.util.UUID;
 public class LotApplicationService implements LotService {
     private final OwnerService ownerService;
     private final LotRepository lotRepository;
+
     @Override
     public LotResponse createLot(UUID idOwner, @Valid LotRequest lotRequest) {
         log.info("[start] LotApplicationService - createLot");
@@ -41,10 +42,8 @@ public class LotApplicationService implements LotService {
         log.info("[start] LotApplicationService - getLotPerId");
         Lot lot = lotRepository.getLotPerId(idLot);
         log.info("[finish] LotApplicationService - getLotPerId");
-        return null;
+        return new LotDetailResponse(lot);
+
     }
 
-
 }
-
-

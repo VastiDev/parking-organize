@@ -25,6 +25,7 @@ public class Lot {
 
     @NotNull
     private UUID idOwnerHome;
+
     @Min(1)
     @Max(30)
     @Column(unique = true)
