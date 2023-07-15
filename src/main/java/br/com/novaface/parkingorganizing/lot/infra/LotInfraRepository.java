@@ -47,6 +47,7 @@ public class LotInfraRepository implements LotRepository {
     @Override
     public void deleteLotPerId(Lot lot) {
         log.info("[start] LotInfraRepository - deleteLotPerId");
+        lotInfraJPARepository.delete(lot);
         log.info("[finish] LotInfraRepository - deleteLotPerId");
 
     }
