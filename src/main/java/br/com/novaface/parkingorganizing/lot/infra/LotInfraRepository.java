@@ -3,7 +3,6 @@ package br.com.novaface.parkingorganizing.lot.infra;
 import br.com.novaface.parkingorganizing.handler.APIException;
 import br.com.novaface.parkingorganizing.lot.application.service.LotRepository;
 import br.com.novaface.parkingorganizing.lot.domain.Lot;
-import br.com.novaface.parkingorganizing.owner.application.infra.OwnerInfraRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.dao.DataIntegrityViolationException;
@@ -55,5 +54,13 @@ public class LotInfraRepository implements LotRepository {
         lotInfraJPARepository.delete(lot);
         log.info("[finish] LotInfraRepository - deleteLotPerId");
 
+    }
+
+    @Override
+    public Lot addLot(Lot lot) {
+        log.info("[start] LotInfraRepository - addLot");
+        lotInfraJPARepository.save(lot);
+        log.info("[finish] LotInfraRepository - addLot");
+        return lot;
     }
 }

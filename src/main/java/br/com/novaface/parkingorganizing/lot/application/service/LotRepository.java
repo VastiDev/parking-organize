@@ -14,4 +14,6 @@ public interface LotRepository {
     Lot getLotPerId(UUID idLot);
 
     void deleteLotPerId(Lot lot);
+
+    Lot addLot(Lot lot);
 }

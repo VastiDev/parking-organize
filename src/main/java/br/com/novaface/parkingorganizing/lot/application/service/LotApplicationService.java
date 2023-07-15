@@ -62,7 +62,14 @@ public class LotApplicationService implements LotService {
 
     }
 
-
+    @Override
+    public ExtraLotResponse addLot(UUID idOwner, ExtraLotRequest extraLotRequest) {
+        log.info("[start] LotApplicationService - addLot");
+        ownerService.getOwnerPerId(idOwner);
+        Lot lot = lotRepository.addLot(new Lot(idOwner,extraLotRequest));
+        log.info("[finish] LotApplicationService - addLot");
+        return new ExtraLotResponse(lot.getNumberLot(), idOwner, extraLotRequest.getExtraLot());
+    }
 
 
 }

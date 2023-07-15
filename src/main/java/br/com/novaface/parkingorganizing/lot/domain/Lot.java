@@ -1,5 +1,6 @@
 package br.com.novaface.parkingorganizing.lot.domain;
 
+import br.com.novaface.parkingorganizing.lot.application.api.ExtraLotRequest;
 import br.com.novaface.parkingorganizing.lot.application.api.LotChangeRequest;
 import br.com.novaface.parkingorganizing.lot.application.api.LotRequest;
 import lombok.AccessLevel;
@@ -10,7 +11,6 @@ import javax.persistence.*;
 import javax.validation.Valid;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
-import javax.validation.constraints.NotNull;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
@@ -24,13 +24,14 @@ public class Lot {
     @Column(columnDefinition = "uuid", name = "idLot", updatable = false, unique = true, nullable = false )
     private UUID idLot;
 
-    @NotNull
+
     private UUID idOwnerHome;
 
     @Min(1)
     @Max(30)
     @Column(unique = true)
     private Integer numberLot;
+
 
     private String extraLot;
 
@@ -46,6 +47,12 @@ public class Lot {
     public Lot(UUID idOwner, LotChangeRequest lotChangeRequest) {
         this.numberLot = lotChangeRequest.getNumberLot();
         this.timeLastChange = LocalDateTime.now();
+    }
+
+    public Lot(UUID idOwner, ExtraLotRequest extraLotRequest) {
+        this.extraLot = extraLotRequest.getExtraLot();
+        this.timeRegistration = LocalDateTime.now();
+
     }
 
     public void change(LotChangeRequest lotChangeRequest) {
