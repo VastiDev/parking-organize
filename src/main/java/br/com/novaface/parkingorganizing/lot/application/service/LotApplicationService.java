@@ -27,7 +27,7 @@ public class LotApplicationService implements LotService {
         ownerService.getOwnerPerId(idOwner);
         Lot lot = lotRepository.saveLot(new Lot(idOwner, lotRequest));
         log.info("[finish] LotApplicationService - createLot");
-        return new LotResponse(lot.getNumberLot());
+        return new LotResponse(idLot);
     }
 
     @Override
