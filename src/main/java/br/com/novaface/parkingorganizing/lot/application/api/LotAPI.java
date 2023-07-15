@@ -33,6 +33,11 @@ public interface LotAPI {
     void changeLot(@PathVariable UUID idLot,
                         @Valid @RequestBody LotChangeRequest lotChangeRequest);
 
+    @PostMapping("/{idOwner}/add-lot")
+    @ResponseStatus(code = HttpStatus.NO_CONTENT)
+    void addLot(@PathVariable UUID idOwner,
+                @Valid @RequestBody ExtraLotRequest extraLotRequest);
+
 
 }
 

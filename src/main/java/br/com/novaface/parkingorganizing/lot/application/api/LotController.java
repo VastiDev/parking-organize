@@ -57,4 +57,11 @@ public class LotController implements LotAPI {
         log.info("[finish] LotController - changeLot");
 
     }
+
+    @Override
+    public void addLot(UUID idOwner, ExtraLotRequest extraLotRequest) {
+        log.info("[start] LotController - addLot");
+        log.info("[finish] LotController - addLot");
+
+    }
 }

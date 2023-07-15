@@ -32,6 +32,8 @@ public class Lot {
     @Column(unique = true)
     private Integer numberLot;
 
+    private String extraLot;
+
     private LocalDateTime timeRegistration;
     private LocalDateTime timeLastChange;
 
