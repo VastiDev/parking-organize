@@ -28,9 +28,9 @@ public interface LotAPI {
     @ResponseStatus(code = HttpStatus.NO_CONTENT)
     void deleteLotPerId(@PathVariable UUID idLot);
 
-    @PatchMapping("/{idOwner}")
+    @PatchMapping("/{idLot}")
     @ResponseStatus(code = HttpStatus.NO_CONTENT)
-    void changeLot(@PathVariable UUID idOwner,
+    void changeLot(@PathVariable UUID idLot,
                         @Valid @RequestBody LotChangeRequest lotChangeRequest);
 
 

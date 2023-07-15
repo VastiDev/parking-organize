@@ -1,5 +1,6 @@
 package br.com.novaface.parkingorganizing.lot.domain;
 
+import br.com.novaface.parkingorganizing.lot.application.api.LotChangeRequest;
 import br.com.novaface.parkingorganizing.lot.application.api.LotRequest;
 import lombok.AccessLevel;
 import lombok.Getter;
@@ -40,7 +41,13 @@ public class Lot {
         this.timeRegistration = LocalDateTime.now();
     }
 
+    public Lot(UUID idOwner, LotChangeRequest lotChangeRequest) {
+        this.numberLot = lotChangeRequest.getNumberLot();
+        this.timeLastChange = LocalDateTime.now();
+    }
 
-
-
+    public void change(LotChangeRequest lotChangeRequest) {
+        this.numberLot = lotChangeRequest.getNumberLot();
+        this.timeLastChange = LocalDateTime.now();
+    }
 }

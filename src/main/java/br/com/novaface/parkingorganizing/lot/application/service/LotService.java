@@ -1,9 +1,6 @@
 package br.com.novaface.parkingorganizing.lot.application.service;
 
-import br.com.novaface.parkingorganizing.lot.application.api.LotDetailResponse;
-import br.com.novaface.parkingorganizing.lot.application.api.LotListResponse;
-import br.com.novaface.parkingorganizing.lot.application.api.LotRequest;
-import br.com.novaface.parkingorganizing.lot.application.api.LotResponse;
+import br.com.novaface.parkingorganizing.lot.application.api.*;
 import br.com.novaface.parkingorganizing.lot.domain.Lot;
 
 import javax.validation.Valid;
@@ -20,5 +17,5 @@ public interface LotService {
 
     void deleteLotPerId(UUID idLot);
 
-    void changeLot(UUID idOwner);
+    void changeLot(UUID idLot, @Valid LotChangeRequest lotChangeRequest);
 }

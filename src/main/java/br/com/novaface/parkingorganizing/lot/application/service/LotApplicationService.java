@@ -1,9 +1,6 @@
 package br.com.novaface.parkingorganizing.lot.application.service;
 
-import br.com.novaface.parkingorganizing.lot.application.api.LotDetailResponse;
-import br.com.novaface.parkingorganizing.lot.application.api.LotListResponse;
-import br.com.novaface.parkingorganizing.lot.application.api.LotRequest;
-import br.com.novaface.parkingorganizing.lot.application.api.LotResponse;
+import br.com.novaface.parkingorganizing.lot.application.api.*;
 import br.com.novaface.parkingorganizing.lot.domain.Lot;
 import br.com.novaface.parkingorganizing.owner.application.service.OwnerService;
 import lombok.RequiredArgsConstructor;
@@ -56,11 +53,16 @@ public class LotApplicationService implements LotService {
     }
 
     @Override
-    public void changeLot(UUID idOwner) {
+    public void changeLot(UUID idLot, @Valid LotChangeRequest lotChangeRequest ) {
         log.info("[start] LotApplicationService - changeLot");
+        Lot lot = lotRepository.getLotPerId(idLot);
+        lot.change(lotChangeRequest);
+        lotRepository.saveLot(lot);
         log.info("[finish] LotApplicationService - changeLot");
 
     }
+
+
 
 
 }
