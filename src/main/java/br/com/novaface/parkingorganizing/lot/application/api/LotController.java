@@ -39,4 +39,13 @@ public class LotController implements LotAPI {
         log.info("[finish] LotController - getLotPerId ");
         return lotDetailed;
     }
+
+    @Override
+    public void deleteLotPerId(UUID idLot) {
+        log.info("[start] LotController - deleteLotPerId");
+        log.info("[idLot] {},idLot");
+        log.info("[finish] LotController - deleteLotPerId");
+
+
+    }
 }

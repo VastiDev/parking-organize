@@ -27,5 +27,10 @@ public interface LotAPI {
     @ResponseStatus(code = HttpStatus.OK)
     LotDetailResponse getLotPerId(@PathVariable UUID idLot);
 
+    @DeleteMapping(value = "/{idLot}")
+    @ResponseStatus(code = HttpStatus.NO_CONTENT)
+    void deleteLotPerId(@PathVariable UUID idLot);
+
+
 }
 
