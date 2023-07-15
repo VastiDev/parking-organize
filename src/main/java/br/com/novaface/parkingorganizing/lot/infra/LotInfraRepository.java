@@ -6,6 +6,7 @@ import br.com.novaface.parkingorganizing.lot.domain.Lot;
 import br.com.novaface.parkingorganizing.owner.application.infra.OwnerInfraRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Repository;
 
@@ -21,7 +22,11 @@ public class LotInfraRepository implements LotRepository {
     @Override
     public Lot saveLot(Lot lot) {
         log.info("[start] LotInfraRepository - saveLot");
-        lotInfraJPARepository.save(lot);
+        try {
+            lotInfraJPARepository.save(lot);
+        } catch (DataIntegrityViolationException e) {
+            throw APIException.build(HttpStatus.BAD_REQUEST, "Vaga ocupada", e);
+        }
         log.info("[finish] LotInfraRepository - saveLot");
         return lot;
     }
