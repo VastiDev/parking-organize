@@ -46,4 +46,13 @@ public class LotApplicationService implements LotService {
 
     }
 
+    @Override
+    public void deleteLotPerId(UUID idLot) {
+        log.info("[start] LotApplicationService - deleteLotPerId");
+        Lot lot = lotRepository.getLotPerId(idLot);
+        lotRepository.deleteLotPerId(lot);
+        log.info("[finish] LotApplicationService - deleteLotPerId");
+
+    }
+
 }

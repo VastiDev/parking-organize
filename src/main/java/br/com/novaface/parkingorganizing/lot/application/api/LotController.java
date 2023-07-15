@@ -44,6 +44,7 @@ public class LotController implements LotAPI {
     public void deleteLotPerId(UUID idLot) {
         log.info("[start] LotController - deleteLotPerId");
         log.info("[idLot] {},idLot");
+        lotService.deleteLotPerId(idLot);
         log.info("[finish] LotController - deleteLotPerId");
 
 

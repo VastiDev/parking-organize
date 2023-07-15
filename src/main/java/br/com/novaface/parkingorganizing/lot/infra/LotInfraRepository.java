@@ -43,4 +43,11 @@ public class LotInfraRepository implements LotRepository {
         log.info("[finish] LotInfraRepository - getLotPerId");
         return lot;
     }
+
+    @Override
+    public void deleteLotPerId(Lot lot) {
+        log.info("[start] LotInfraRepository - deleteLotPerId");
+        log.info("[finish] LotInfraRepository - deleteLotPerId");
+
+    }
 }

@@ -12,4 +12,6 @@ public interface LotRepository {
     List<Lot> getAllLots();
 
     Lot getLotPerId(UUID idLot);
+
+    void deleteLotPerId(Lot lot);
 }
