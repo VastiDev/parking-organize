@@ -55,4 +55,12 @@ public class LotApplicationService implements LotService {
 
     }
 
+    @Override
+    public void changeLot(UUID idOwner) {
+        log.info("[start] LotApplicationService - changeLot");
+        log.info("[finish] LotApplicationService - changeLot");
+
+    }
+
+
 }

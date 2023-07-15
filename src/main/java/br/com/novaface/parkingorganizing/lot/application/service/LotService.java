@@ -19,4 +19,6 @@ public interface LotService {
     LotDetailResponse getLotPerId(UUID idLot);
 
     void deleteLotPerId(UUID idLot);
+
+    void changeLot(UUID idOwner);
 }

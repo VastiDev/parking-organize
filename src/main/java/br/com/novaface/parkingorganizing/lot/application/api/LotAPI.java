@@ -1,14 +1,11 @@
 package br.com.novaface.parkingorganizing.lot.application.api;
 
-import br.com.novaface.parkingorganizing.lot.domain.Lot;
-
-import br.com.novaface.parkingorganizing.owner.application.api.OwnerDetailResponse;
-import br.com.novaface.parkingorganizing.owner.application.api.OwnerListResponse;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
-import java.util.*;
+import java.util.List;
+import java.util.UUID;
 
 @RestController
 @RequestMapping("/v2/owner/lot")
@@ -30,6 +27,11 @@ public interface LotAPI {
     @DeleteMapping(value = "/{idLot}")
     @ResponseStatus(code = HttpStatus.NO_CONTENT)
     void deleteLotPerId(@PathVariable UUID idLot);
+
+    @PatchMapping("/{idOwner}")
+    @ResponseStatus(code = HttpStatus.NO_CONTENT)
+    void changeLot(@PathVariable UUID idOwner,
+                        @Valid @RequestBody LotChangeRequest lotChangeRequest);
 
 
 }
