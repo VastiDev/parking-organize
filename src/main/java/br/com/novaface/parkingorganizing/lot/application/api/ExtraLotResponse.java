@@ -5,7 +5,6 @@ import lombok.Value;
 import java.util.UUID;
 @Value
 public class ExtraLotResponse {
-    private Integer numberLot;
-    private UUID idOwnerHome;
     private String extraLot;
+    private Integer numberLot;
 }

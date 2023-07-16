@@ -53,7 +53,7 @@ public class LotApplicationService implements LotService {
     }
 
     @Override
-    public void changeLot(UUID idLot, @Valid LotChangeRequest lotChangeRequest ) {
+    public void changeLot(UUID idLot, @Valid LotChangeRequest lotChangeRequest) {
         log.info("[start] LotApplicationService - changeLot");
         Lot lot = lotRepository.getLotPerId(idLot);
         lot.change(lotChangeRequest);
@@ -63,13 +63,12 @@ public class LotApplicationService implements LotService {
     }
 
     @Override
-    public ExtraLotResponse addLot(UUID idOwner, ExtraLotRequest extraLotRequest) {
+    public ExtraLotResponse addLot(UUID idOwner, UUID idLot, ExtraLotRequest extraLotRequest) {
         log.info("[start] LotApplicationService - addLot");
         ownerService.getOwnerPerId(idOwner);
-        Lot lot = lotRepository.addLot(new Lot(idOwner,extraLotRequest));
+        var lot = lotRepository.addLot(new Lot(idOwner, extraLotRequest));
         log.info("[finish] LotApplicationService - addLot");
-        return new ExtraLotResponse(lot.getNumberLot(), idOwner, extraLotRequest.getExtraLot());
+        return new ExtraLotResponse(lot.getExtraLot(), lot.getNumberLot());
+
     }
-
-
 }

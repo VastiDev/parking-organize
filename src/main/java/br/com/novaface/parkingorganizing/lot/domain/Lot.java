@@ -50,6 +50,7 @@ public class Lot {
     }
 
     public Lot(UUID idOwner, ExtraLotRequest extraLotRequest) {
+        this.idLot = getIdLot();
         this.extraLot = extraLotRequest.getExtraLot();
         this.timeRegistration = LocalDateTime.now();
 

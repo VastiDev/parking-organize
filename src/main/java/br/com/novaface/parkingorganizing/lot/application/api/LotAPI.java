@@ -33,9 +33,9 @@ public interface LotAPI {
     void changeLot(@PathVariable UUID idLot,
                         @Valid @RequestBody LotChangeRequest lotChangeRequest);
 
-    @PostMapping("/{idOwner}/add-lot")
-    @ResponseStatus(code = HttpStatus.NO_CONTENT)
-    ExtraLotResponse addLot(@PathVariable UUID idOwner,
+    @PostMapping("/{idOwner}/add-lot/{idLot}")
+    @ResponseStatus(code = HttpStatus.OK)
+    ExtraLotResponse addLot(@PathVariable UUID idOwner, @PathVariable UUID idLot,
                 @Valid @RequestBody ExtraLotRequest extraLotRequest);
 
 

@@ -59,8 +59,9 @@ public class LotInfraRepository implements LotRepository {
     @Override
     public Lot addLot(Lot lot) {
         log.info("[start] LotInfraRepository - addLot");
-        lotInfraJPARepository.save(lot);
+        Lot extralot = lotInfraJPARepository.save(lot);
         log.info("[finish] LotInfraRepository - addLot");
-        return lot;
+        return extralot;
     }
+
 }
