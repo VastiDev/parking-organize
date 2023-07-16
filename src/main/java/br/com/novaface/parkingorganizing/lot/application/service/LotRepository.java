@@ -1,6 +1,7 @@
 package br.com.novaface.parkingorganizing.lot.application.service;
 
 import br.com.novaface.parkingorganizing.lot.domain.Lot;
+import org.springframework.http.ResponseEntity;
 
 import java.util.List;
 import java.util.UUID;
@@ -15,5 +16,5 @@ public interface LotRepository {
 
     void deleteLotPerId(Lot lot);
 
-    Lot addLot(Lot lot);
+    ResponseEntity<String> addLot(Lot lot);
 }

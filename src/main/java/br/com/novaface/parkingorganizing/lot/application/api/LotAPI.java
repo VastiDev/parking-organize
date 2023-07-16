@@ -1,6 +1,7 @@
 package br.com.novaface.parkingorganizing.lot.application.api;
 
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -35,7 +36,7 @@ public interface LotAPI {
 
     @PostMapping("/{idOwner}/add-lot/{idLot}")
     @ResponseStatus(code = HttpStatus.OK)
-    ExtraLotResponse addLot(@PathVariable UUID idOwner, @PathVariable UUID idLot,
+    ResponseEntity<String> addLot(@PathVariable UUID idOwner, @PathVariable UUID idLot,
                 @Valid @RequestBody ExtraLotRequest extraLotRequest);
 
 

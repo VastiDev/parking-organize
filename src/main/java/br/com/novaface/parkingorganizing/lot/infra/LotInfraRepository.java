@@ -7,6 +7,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -42,8 +43,8 @@ public class LotInfraRepository implements LotRepository {
     public Lot getLotPerId(UUID idLot) {
         log.info("[start] LotInfraRepository - getLotPerId");
         Lot lot = lotInfraJPARepository.findById(idLot)
-                        .orElseThrow(() -> APIException.build(HttpStatus.NOT_FOUND,
-                                "Cliente não encontrado"));
+                .orElseThrow(() -> APIException.build(HttpStatus.NOT_FOUND,
+                        "Cliente não encontrado"));
         log.info("[finish] LotInfraRepository - getLotPerId");
         return lot;
     }
@@ -57,11 +58,11 @@ public class LotInfraRepository implements LotRepository {
     }
 
     @Override
-    public Lot addLot(Lot lot) {
+    public ResponseEntity<String> addLot(Lot lot) {
         log.info("[start] LotInfraRepository - addLot");
         Lot extralot = lotInfraJPARepository.save(lot);
         log.info("[finish] LotInfraRepository - addLot");
-        return extralot;
-    }
 
+        return null;
+    }
 }

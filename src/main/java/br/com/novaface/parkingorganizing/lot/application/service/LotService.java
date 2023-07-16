@@ -18,5 +18,5 @@ public interface LotService {
 
     void changeLot(UUID idLot, @Valid LotChangeRequest lotChangeRequest);
 
-    ExtraLotResponse addLot(UUID idOwner, UUID idLot, ExtraLotRequest extraLotRequest);
+    void addLot(UUID idOwner, UUID idLot, ExtraLotRequest extraLotRequest);
 }

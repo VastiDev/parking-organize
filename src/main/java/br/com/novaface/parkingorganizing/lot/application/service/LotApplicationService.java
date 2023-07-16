@@ -63,12 +63,12 @@ public class LotApplicationService implements LotService {
     }
 
     @Override
-    public ExtraLotResponse addLot(UUID idOwner, UUID idLot, ExtraLotRequest extraLotRequest) {
+    public void addLot(UUID idOwner, UUID idLot, ExtraLotRequest extraLotRequest) {
         log.info("[start] LotApplicationService - addLot");
         ownerService.getOwnerPerId(idOwner);
         var lot = lotRepository.addLot(new Lot(idOwner, extraLotRequest));
         log.info("[finish] LotApplicationService - addLot");
-        return new ExtraLotResponse(lot.getExtraLot(), lot.getNumberLot());
+
 
     }
 }

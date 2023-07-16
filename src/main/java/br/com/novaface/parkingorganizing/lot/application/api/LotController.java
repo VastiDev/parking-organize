@@ -1,9 +1,10 @@
 package br.com.novaface.parkingorganizing.lot.application.api;
 
 import br.com.novaface.parkingorganizing.lot.application.service.LotService;
-import br.com.novaface.parkingorganizing.lot.domain.Lot;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.validation.Valid;
@@ -59,11 +60,13 @@ public class LotController implements LotAPI {
     }
 
     @Override
-    public ExtraLotResponse addLot(UUID idOwner, UUID idLot, ExtraLotRequest extraLotRequest) {
+    public ResponseEntity<String> addLot(UUID idOwner, UUID idLot, ExtraLotRequest extraLotRequest) {
         log.info("[start] LotController - addLot");
-        ExtraLotResponse lot = lotService.addLot(idOwner, idLot, extraLotRequest);
+        lotService.addLot(idOwner, idLot, extraLotRequest);
         log.info("[finish] LotController - addLot");
-        return lot;
+        ResponseEntity<String> vagaExtraCadastradaComSucesso = ResponseEntity.status(HttpStatus.CREATED).body("Vaga extra cadastrada com sucesso");
+        return vagaExtraCadastradaComSucesso;
+
     }
 
 
