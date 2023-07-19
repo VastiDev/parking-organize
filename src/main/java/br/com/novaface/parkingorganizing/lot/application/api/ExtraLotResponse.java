@@ -7,4 +7,5 @@ import java.util.UUID;
 public class ExtraLotResponse {
     private String extraLot;
     private Integer numberLot;
+    private String fullName;
 }

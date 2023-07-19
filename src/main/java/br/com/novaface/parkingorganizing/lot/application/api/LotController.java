@@ -64,8 +64,7 @@ public class LotController implements LotAPI {
         log.info("[start] LotController - addLot");
         lotService.addLot(idOwner, idLot, extraLotRequest);
         log.info("[finish] LotController - addLot");
-        ResponseEntity<String> vagaExtraCadastradaComSucesso = ResponseEntity.status(HttpStatus.CREATED).body("Vaga extra cadastrada com sucesso");
-        return vagaExtraCadastradaComSucesso;
+        return ResponseEntity.status(HttpStatus.CREATED).body("Vaga extra cadastrada com sucesso");
 
     }
 
