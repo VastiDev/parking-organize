@@ -1,9 +1,6 @@
 package br.com.novaface.parkingorganizing.lot.application.service;
 
-import br.com.novaface.parkingorganizing.lot.application.api.LotDetailResponse;
-import br.com.novaface.parkingorganizing.lot.application.api.LotListResponse;
-import br.com.novaface.parkingorganizing.lot.application.api.LotRequest;
-import br.com.novaface.parkingorganizing.lot.application.api.LotResponse;
+import br.com.novaface.parkingorganizing.lot.application.api.*;
 import br.com.novaface.parkingorganizing.lot.domain.Lot;
 import br.com.novaface.parkingorganizing.owner.application.service.OwnerService;
 import lombok.RequiredArgsConstructor;
@@ -19,12 +16,12 @@ import java.util.UUID;
 public class LotApplicationService implements LotService {
     private final OwnerService ownerService;
     private final LotRepository lotRepository;
-    private String numberLot;
+    private UUID idLot;
+
 
     @Override
     public LotResponse createLot(UUID idOwner, @Valid LotRequest lotRequest) {
         log.info("[start] LotApplicationService - createLot");
-        ownerService.getOwnerPerId(idOwner);
         Lot lot = lotRepository.saveLot(new Lot(idOwner, lotRequest));
         log.info("[finish] LotApplicationService - createLot");
         return new LotResponse(idLot);
@@ -38,6 +35,45 @@ public class LotApplicationService implements LotService {
         return LotListResponse.convert(lots);
     }
 
-}
 
+    @Override
+    public LotDetailResponse getLotPerId(UUID idLot) {
+        log.info("[start] LotApplicationService - getLotPerId");
+        Lot lot = lotRepository.getLotPerId(idLot);
+        log.info("[finish] LotApplicationService - getLotPerId");
+        return new LotDetailResponse(lot);
+
+    }
+
+    @Override
+    public void deleteLotPerId(UUID idLot) {
+        log.info("[start] LotApplicationService - deleteLotPerId");
+        Lot lot = lotRepository.getLotPerId(idLot);
+        lotRepository.deleteLotPerId(lot);
+        log.info("[finish] LotApplicationService - deleteLotPerId");
+
+    }
+
+    @Override
+    public void changeLot(UUID idLot, @Valid LotChangeRequest lotChangeRequest) {
+        log.info("[start] LotApplicationService - changeLot");
+        Lot lot = lotRepository.getLotPerId(idLot);
+        lot.change(lotChangeRequest);
+        lotRepository.saveLot(lot);
+        log.info("[finish] LotApplicationService - changeLot");
+
+    }
+
+    @Override
+    public void addLot(UUID idOwner, UUID idLot, ExtraLotRequest extraLotRequest) {
+        log.info("[start] LotApplicationService - addLot");
+        ownerService.getOwnerPerId(idOwner);
+        lotRepository.addLot(new Lot(idOwner, extraLotRequest));
+        log.info("[finish] LotApplicationService - addLot");
+
+
+    }
+
+
+}
 

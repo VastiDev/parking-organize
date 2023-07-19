@@ -1,6 +1,7 @@
 package br.com.novaface.parkingorganizing.lot.application.api;
 
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -26,6 +27,17 @@ public interface LotAPI {
     @DeleteMapping(value = "/{idLot}")
     @ResponseStatus(code = HttpStatus.NO_CONTENT)
     void deleteLotPerId(@PathVariable UUID idLot);
+
+
+    @PatchMapping("/{idLot}")
+    @ResponseStatus(code = HttpStatus.NO_CONTENT)
+    void changeLot(@PathVariable UUID idLot,
+                        @Valid @RequestBody LotChangeRequest lotChangeRequest);
+
+    @PostMapping("/{idOwner}/add-lot/{idLot}")
+    @ResponseStatus(code = HttpStatus.OK)
+    ResponseEntity<String> addLot(@PathVariable UUID idOwner, @PathVariable UUID idLot,
+                @Valid @RequestBody ExtraLotRequest extraLotRequest);
 
 
 }
