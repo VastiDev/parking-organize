@@ -9,11 +9,11 @@ import java.util.UUID;
 public class LotDetailResponse {
     private Integer numberLot;
     private UUID idOwnerHome;
-    private String fullName;
+
 
     public LotDetailResponse(Lot lot) {
         this.numberLot = lot.getNumberLot();
         this.idOwnerHome = lot.getIdOwnerHome();
-        this.fullName = lot.getFullName();
+
     }
 }

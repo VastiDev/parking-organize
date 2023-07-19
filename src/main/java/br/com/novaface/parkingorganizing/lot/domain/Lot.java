@@ -35,14 +35,6 @@ public class Lot {
     @Column(unique = true)
     private Integer numberLot;
 
-    private String fullName;
-
-    @OneToOne
-    @JoinColumn(name = "owner_id")
-    private Owner owner;
-
-
-
     private String extraLot;
 
     private LocalDateTime timeRegistration;

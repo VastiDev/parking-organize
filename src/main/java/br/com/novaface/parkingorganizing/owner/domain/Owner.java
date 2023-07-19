@@ -46,8 +46,6 @@ public class Owner {
     private LocalDateTime timeRegistration;
     private LocalDateTime timeLastChange;
 
-    @OneToOne(mappedBy = "owner", cascade = CascadeType.ALL)
-    private Lot lot;
 
     public Owner(OwnerRequest ownerRequest) {
         this.fullName = ownerRequest.getFullName();
