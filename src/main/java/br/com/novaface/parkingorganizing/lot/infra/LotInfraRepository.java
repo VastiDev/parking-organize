@@ -24,7 +24,7 @@ public class LotInfraRepository implements LotRepository {
         try {
             lotInfraJPARepository.save(lot);
         } catch (DataIntegrityViolationException e) {
-            throw APIException.build(HttpStatus.BAD_REQUEST, "Vaga ocupada", e);
+            throw APIException.build(HttpStatus.BAD_REQUEST, "Occupied lot", e);
         }
         log.info("[finish] LotInfraRepository - saveLot");
         return lot;
@@ -43,7 +43,7 @@ public class LotInfraRepository implements LotRepository {
         log.info("[start] LotInfraRepository - getLotPerId");
         Lot lot = lotInfraJPARepository.findById(idLot)
                 .orElseThrow(() -> APIException.build(HttpStatus.NOT_FOUND,
-                        "Cliente não encontrado"));
+                        "Client not found"));
         log.info("[finish] LotInfraRepository - getLotPerId");
         return lot;
     }
@@ -57,11 +57,10 @@ public class LotInfraRepository implements LotRepository {
     }
 
     @Override
-    public Lot addLot(Lot lot) {
+    public void addLot(Lot lot) {
         log.info("[start] LotInfraRepository - addLot");
-        Lot extralot = lotInfraJPARepository.save(lot);
+        lotInfraJPARepository.save(lot);
         log.info("[finish] LotInfraRepository - addLot");
 
-        return null;
     }
 }
