@@ -3,7 +3,6 @@ package br.com.novaface.parkingorganizing.lot.domain;
 import br.com.novaface.parkingorganizing.lot.application.api.ExtraLotRequest;
 import br.com.novaface.parkingorganizing.lot.application.api.LotChangeRequest;
 import br.com.novaface.parkingorganizing.lot.application.api.LotRequest;
-import br.com.novaface.parkingorganizing.owner.domain.Owner;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -59,6 +58,9 @@ public class Lot {
 
 
 
+    }
+
+    public Lot(LotRequest lotRequest) {
     }
 
     public void change(LotChangeRequest lotChangeRequest) {
