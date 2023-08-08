@@ -1,8 +1,9 @@
 package br.com.novaface.parkingorganizing.owner.application.api;
 
-import lombok.Value;
+import lombok.Data;
+
 import java.time.LocalDate;
-@Value
+@Data
 public class OwnerRequest {
     private String fullName;
     private String cpf;

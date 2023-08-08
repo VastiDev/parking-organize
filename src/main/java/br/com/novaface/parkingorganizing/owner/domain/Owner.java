@@ -19,6 +19,7 @@ import java.util.UUID;
 @Getter
 @Entity
 @Setter
+@Data
 public class Owner {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
