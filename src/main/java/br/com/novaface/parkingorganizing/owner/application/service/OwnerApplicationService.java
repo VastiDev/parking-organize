@@ -11,6 +11,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Service;
 
+import javax.validation.Valid;
 import java.util.List;
 import java.util.UUID;
 
@@ -21,7 +22,7 @@ public class OwnerApplicationService implements OwnerService {
     private final OwnerRepository ownerRepository;
 
     @Override
-    public OwnerResponse creatOwner(OwnerRequest ownerRequest) {
+    public OwnerResponse creatOwner(@Valid OwnerRequest ownerRequest) {
         log.info("[start] OwnerApplicationService - creatOwner");
         Owner owner = ownerRepository.save(new Owner(ownerRequest));
         log.info("[finish] OwnerApplicationService - creatOwner");

@@ -1,9 +1,13 @@
 package br.com.novaface.parkingorganizing.owner.application.api;
 
-import lombok.Data;
+import lombok.AccessLevel;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
-@Data
+
+@Getter
+@NoArgsConstructor(access = AccessLevel.PUBLIC)
 public class OwnerRequest {
     private String fullName;
     private String cpf;
