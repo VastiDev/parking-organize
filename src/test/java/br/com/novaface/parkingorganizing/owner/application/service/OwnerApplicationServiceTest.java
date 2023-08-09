@@ -1,5 +1,7 @@
 package br.com.novaface.parkingorganizing.owner.application.service.test;
 
+import br.com.novaface.parkingorganizing.OwnerChangeRequest;
+import br.com.novaface.parkingorganizing.owner.application.api.OwnerDetailResponse;
 import br.com.novaface.parkingorganizing.owner.application.api.OwnerListResponse;
 import br.com.novaface.parkingorganizing.owner.application.api.OwnerRequest;
 import br.com.novaface.parkingorganizing.owner.application.api.OwnerResponse;
@@ -71,17 +73,50 @@ class OwnerApplicationServiceTest {
     }
 
     @Test
-    public void testDeleteOwnerPerId() {
+    public void testGetOwnerPerId() {
         // Given
         UUID ownerId = UUID.randomUUID();
-        Owner mockOwner = new Owner(/* initialize owner */);
+        Owner mockOwner = new Owner();
         when(ownerRepository.getOwnerPerId(ownerId)).thenReturn(mockOwner);
 
         // When
-        target.deleteOwnerPerId(ownerId);
+        OwnerDetailResponse response = target.getOwnerPerId(ownerId);
 
         // Then
+        assertNotNull(response);
+        assertEquals(mockOwner.getIdOwner(), response.getIdOwner());
+
         verify(ownerRepository, times(1)).getOwnerPerId(ownerId);
+    }
+
+    @Test
+    public void testDeleteOwnerPerId() {
+        // Given
+        UUID idOwner = UUID.randomUUID();
+        Owner mockOwner = new Owner();
+        when(ownerRepository.getOwnerPerId(idOwner)).thenReturn(mockOwner);
+
+        // When
+        target.deleteOwnerPerId(idOwner);
+
+        // Then
+        verify(ownerRepository, times(1)).getOwnerPerId(idOwner);
         verify(ownerRepository, times(1)).deleteOwner(mockOwner);
     }
+    @Test
+    public void testPatchChangeOwner(){
+        //Given
+        UUID idOwner = UUID.randomUUID();
+        OwnerChangeRequest ownerChangeRequest = new OwnerChangeRequest();
+        Owner mockOwner = new Owner();
+
+        //when
+        when(ownerRepository.getOwnerPerId(idOwner)).thenReturn(mockOwner);
+        target.patchChangeOwner(idOwner, ownerChangeRequest);
+
+        // Then
+        verify(ownerRepository, times(1)).getOwnerPerId(idOwner);
+        verify(ownerRepository, times(1)).save(mockOwner);
+    }
 }
+

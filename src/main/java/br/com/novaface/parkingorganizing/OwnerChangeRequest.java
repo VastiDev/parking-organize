@@ -1,10 +1,13 @@
 package br.com.novaface.parkingorganizing;
 
+import lombok.AccessLevel;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Value;
 
-import java.time.LocalDate;
-
 @Value
+@Getter
+@NoArgsConstructor(access = AccessLevel.PUBLIC, force = true)
 public class OwnerChangeRequest {
     private String fullName;
     private String cellphoneNumber;
